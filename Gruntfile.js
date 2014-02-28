@@ -15,45 +15,39 @@ module.exports = function(grunt) {
       },
       devToBin:
       {
-        files: 'src/assets/**/scripts/*.js'
+        src: 'src/assets/chess/scripts/checkboard.js'
       }
     },
 
     sync:
     {
-      main:
+      devToBin:
       {
         files:
-        [{
+        {
           cwd:  'src',
-          src:  '*',
+          src:  '**',
           dest: 'bin'
-        }]
+        }
       }
     },
 
     watch:
     {
-      jshint:
+      jscheck:
       {
-        files: 'src/assets/**/scripts/*.js',
+        files: 'src/**',
         task:  'jshint'
-      },
-      sync:
-      {
-         files: 'src/*',
-         task:  'sync'
       },
       livereload:
       {
         options: { livereload: true },
         files:   'bin/assets/**/scripts/*.js'
       }
-    },
+    }
 
   });
 
   require('load-grunt-tasks')(grunt);
   grunt.registerTask('devbin', ['watch']);
-  
 }
