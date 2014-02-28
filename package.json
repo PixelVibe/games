@@ -1,0 +1,39 @@
+{
+  "name": "games",
+  "version": "0.1.0",
+  "description": "Games built with a variety of technologies and frameworks. For educational purposes only....",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PixelVibe/games"
+  },
+  "keywords": [
+    "games",
+    "js games",
+    "javascript",
+    "svg",
+    "canvas",
+    "html5",
+    "css3",
+    "d3.js"
+  ],
+  "author": "Nikos Kapatos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PixelVibe/games/issues"
+  },
+  "homepage": "https://github.com/PixelVibe/games",
+  "devDependencies": {
+    "grunt": "^0.4.2",
+    "grunt-contrib-jshint": "^0.8.0",
+    "grunt-contrib-watch": "^0.5.3",
+    "load-grunt-tasks": "^0.4.0",
+    "grunt-sync": "0.0.5"
+  }
+}
