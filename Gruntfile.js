@@ -49,8 +49,7 @@ module.exports = function(grunt) {
   });
 
   require('load-grunt-tasks')(grunt);
-  //grunt.registerTask('devbin', ['watch']);
-
-  grunt.registerTask('devbin', ['sync']);
+  grunt.registerTask('devbin', ['watch']);
+  grunt.registerTask('test', ['jshint', 'sync']);
 
 }
