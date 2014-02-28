@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/style.min.css">
+
+        <script src="js/vendor/modernizr.custom.58759.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            Modernizr.load({
+              test: Modernizr.canvas,
+              nope: 'js/vendor/flashcanvas/flashcanvas.js'
+            });
+        </script>
+
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="main-container">
+            <div class="main wrapper clearfix">
+                <h2>Modal Window</h2>
+                <div class="modal_window_task">
+                    <a href="modal-A" class='popthemodal'>Modal window A</a>
+                    <a href="modal-B" class='popthemodal'>Modal window B</a>
+                    <a href="modal-C" class='popthemodal'>Modal window C</a>
+                </div> <!-- modal window task -->
+
+                <hr/>
+
+                <h2>Chess Board</h2>
+                <h4>With canvas</h4>
+                <div id="myBoard"></div>
+                <h4>html/css</h4>
+                <div id="myBoardNoCanvas"></div>
+
+                <p>
+                    
+                    profiler gives a slight advantage to canvas implementation,
+                    though when moves, animation etc come to play, redrawing canvas might
+                    be in equal terms with html version
+
+                </p>
+
+                <hr/>
+
+                <h2>Ajax request</h2>
+                <div id="jsonWithAjax">
+                    If you can read this message, then the front end developer messed up the code!
+                    Blame him and then burn him as an example for everyone else!!!!
+                </div>
+
+            </div> <!-- #main -->
+        </div> <!-- #main-container -->
+
+
+        <!-- modal windows -->
+        <div id="modal-A" class="overlay">
+            <div class="modal_container">
+                <h3>Modal Window 1</h3>
+                <p>Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p> 
+                <a href="#" class="close">Close</a>
+            </div>
+        </div> <!-- #modal // Modal window -->
+
+        <div id="modal-B" class="overlay">
+            <div class="modal_container">
+                <h3>Modal Window 2</h3>
+                <div>
+                    <label>Label A</label>
+                    <input type="text" name='testInput' />
+                    <label>Label B</label>
+                    <input type="text" name='testInputB' />
+                </div>
+                <p>
+                    Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                    Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                    Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                </p>
+                <a href="#" class="close">Close</a>
+            </div>
+        </div> <!-- #modal // Modal window -->
+
+        <div id="modal-C" class="overlay">
+            <div class="modal_container">
+                <h3>Modal Window 3</h3>
+                <p>Press the add me content to add content (errrmm) and run recenter function</p>
+                <div id="new-content-here"></div>
+                <a href="#" style="color: green;" onclick="addContent()">Add content</a><br/><br/>
+                <a href="#" class="close">Close</a>
+            </div>
+        </div> <!-- #modal // Modal window -->
+
+        <!-- modal windows -->
+
+        <script src="js/main.min.js"></script>
+        <script src="js/chessboard.min.js"></script>
+
+        <script type="text/javascript">
+            modalWindow('popthemodal');
+
+            var myChess = Object.create(ChessBoard);
+            myChess.init('myBoard', 70);
+            myChess.initWithouCanvas('myBoardNoCanvas');
+
+            // FEN Testing
+            myChess.FENString('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1');
+
+            function addContent()
+            {
+                var temp = document.getElementById('new-content-here');
+                var newContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa odio, porta nec tellus a, ullamcorper laoreet tellus. Sed dignissim lectus sit amet nibh ultrices, vel cursus nibh tincidunt. Mauris sed placerat nulla. Nam malesuada aliquam pellentesque. Ut aliquam, sem eu ultricies hendrerit, sapien augue aliquet ante, sagittis lacinia nulla turpis vel mauris. Curabitur at bibendum est. Pellentesque vel leo nibh. Phasellus sit amet quam at leo hendrerit consectetur. Donec vel viverra turpis. Etiam feugiat accumsan nulla, ut eleifend lectus vestibulum sit amet. Ut auctor nisi ut volutpat elementum. Nullam ac mollis quam, tincidunt sollicitudin tortor. Nunc sit amet quam arcu. Ut luctus ut erat quis tincidunt. Donec velit metus, tincidunt eget sapien sit amet, pharetra mollis nisi. Nulla imperdiet blandit libero, id hendrerit magna porttitor quis.';
+                temp.innerHTML = newContent;
+                recenter();
+            }
+        </script>
+
+    </body>
+</html>

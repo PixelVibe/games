@@ -15,7 +15,7 @@ module.exports = function(grunt) {
       },
       devToBin:
       {
-        src: 'src/assets/chess/scripts/checkboard.js'
+        src: 'src/assets/**/scripts/*.js'
       }
     },
 
@@ -24,11 +24,11 @@ module.exports = function(grunt) {
       devToBin:
       {
         files:
-        {
+        [{
           cwd:  'src',
           src:  '**',
           dest: 'bin'
-        }
+        }]
       }
     },
 
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
     {
       jscheck:
       {
-        files: 'src/**',
+        files: 'src/assets/**/scripts/*.js',
         task:  'jshint'
       },
       livereload:
@@ -49,5 +49,8 @@ module.exports = function(grunt) {
   });
 
   require('load-grunt-tasks')(grunt);
-  grunt.registerTask('devbin', ['watch']);
+  //grunt.registerTask('devbin', ['watch']);
+
+  grunt.registerTask('devbin', ['sync']);
+
 }
